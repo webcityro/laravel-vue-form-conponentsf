@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=22a6f20c1cf352beb4de",
+=======
+    "/js/app.js": "/js/app.js?id=68fa8e7d788505931d09",
+>>>>>>> replace-ckeditor-with-tiptap
     "/css/app.css": "/css/app.css?id=47b854105ecc1cc74689",
     "/css/editor.css": "/css/editor.css?id=d41d8cd98f00b204e980"
 }
