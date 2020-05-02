@@ -389,7 +389,7 @@
 										</sc-editor-input>
 									</div>
 								</div>
-							@include('layouts.partials.form-buttons-attached')
+							{{-- @include('layouts.partials.form-buttons-attached') --}}
 						</div>
 					</div>
 				</div>
