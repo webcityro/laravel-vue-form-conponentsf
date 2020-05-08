@@ -11,6 +11,8 @@
 			:clear="clear"
 			:enable="enable"
 			:disable="disable"
+			:enableEvent="enableEvent"
+			:disableEvent="disableEvent"
 			:summary="summaryBag"
 			:submit="submit"
 		></slot>
@@ -86,6 +88,14 @@ export default {
 		disable() {
 			this.clearNotifications();
 			Disabler.methods.disable.call(this);
+		},
+
+		enableEvent() {
+			scEvent.emit('disableEnded-'+this.group);
+		},
+
+		disableEvent() {
+			scEvent.emit('disableStarted-'+this.group);
 		},
 
 		reset() {

@@ -316,7 +316,7 @@
 				:summary="{ total: 0 }"
 			>
 				<div class="card"
-					slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable, summary }">
+					slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable, enableEvent, disableEvent summary }">
 					<div class="card-header">Dependable dropdown with ajax summary Form</div>
 
 					<div class="card-body">

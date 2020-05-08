@@ -10,8 +10,9 @@
 				action="{{ route('main.store') }}"
 				behaviour="confirmWithDialogAndClear"
 				:collections="{ address: {}, colors: [], fruit: [] }"
+				disabled
 			>
-				<div class="card" slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable }">
+				<div class="card" slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable, enableEvent, disableEvent }">
 					<div class="card-header">Main</div>
 
 					<div class="card-body">
@@ -55,6 +56,7 @@
 											}"
 											:error="error"
 											:focus="true"
+											:disabled="isDisabled"
 										></sc-select-input>
 										</div>
 								</div>
@@ -103,6 +105,7 @@
 													'max:30': 'Maximum length 30 chars.'
 												}"
 												:error="error"
+												:disabled="isDisabled"
 											></sc-validation>
 										</template>
 										</sc-text-input>
@@ -216,6 +219,7 @@
 													true-value="a"
 													false-value="b"
 													validation-css-class="block invalid-feedback"
+													:disabled="isDisabled"
 												></sc-checkbox-input>
 											</div>
 											<div class="col-12">
@@ -230,6 +234,7 @@
 													:error="error"
 													:remove-when-false="true"
 													validation-css-class="block invalid-feedback"
+													:disabled="isDisabled"
 												></sc-checkbox-input>
 											</div>
 										</div>
@@ -246,6 +251,7 @@
 													}"
 													:error="error"
 													validation-css-class="block invalid-feedback"
+													:disabled="isDisabled"
 												></sc-checkbox-input>
 											</div>
 										</div>
@@ -279,6 +285,7 @@
 											'length:2': 'You must select exactly 2 colors.'
 										}"
 										:error="error"
+										:disabled="isDisabled"
 									></sc-checkbox-group-input>
 									</fieldset>
 								</div>
@@ -317,6 +324,7 @@
 														value: 6
 													}
 												]"
+												:disabled="isDisabled"
 											></sc-radio-input>
 										</fieldset>
 									</div>
@@ -351,6 +359,7 @@
 														value: 'banana'
 													}
 												]"
+												:disabled="isDisabled"
 											></sc-select-multiple-input>
 										</fieldset>
 									</div>
@@ -367,6 +376,7 @@
 												'required': 'Please provide the excerpt'
 											}"
 											:error="error"
+											:disabled="isDisabled"
 										>
 											<div slot="body">Content goes here...</div>
 										</sc-textarea-input>
@@ -384,12 +394,13 @@
 												'required': 'Please provide the body'
 											}"
 											:error="error"
+											:disabled="isDisabled"
 										>
 											<div slot="body">Editor content goes here...</div>
 										</sc-editor-input>
 									</div>
 								</div>
-							{{-- @include('layouts.partials.form-buttons-attached') --}}
+							@include('layouts.partials.form-buttons-attached')
 						</div>
 					</div>
 				</div>

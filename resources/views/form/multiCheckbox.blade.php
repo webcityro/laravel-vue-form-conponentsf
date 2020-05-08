@@ -12,9 +12,9 @@
 	>
 		<button
 			type="button"
-			:class="['btn', 'btn-danger', {'is-disabled': disabled}]"
-			slot-scope="{ disabled, processing, trigger }"
-			:disabled="disabled"
+			:class="['btn', 'btn-danger', {'is-disabled': isDisabled}]"
+			slot-scope="{ isDisabled, processing, trigger }"
+			:disabled="isDisabled"
 			@click="trigger"
 		>
 			<span v-if="!processing"><i class="fas fa-trash fa-fw"></i> Delete</span>
@@ -32,9 +32,9 @@
 	>
 		<button
 			type="button"
-			:class="['btn', 'btn-success', {'is-disabled': disabled}]"
-			slot-scope="{ disabled, processing, trigger }"
-			:disabled="disabled"
+			:class="['btn', 'btn-success', {'is-disabled': isDisabled}]"
+			slot-scope="{ isDisabled, processing, trigger }"
+			:disabled="isDisabled"
 			@click="trigger"
 		>
 			<span v-if="!processing"><i class="fas fa-download fa-fw"></i> Download</span>
@@ -48,7 +48,7 @@
 				action="{{ route('multi_checkbox.store') }}"
 				behaviour="confirmWithDialogAndClear"
 			>
-				<div class="card" slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable }">
+				<div class="card" slot-scope="{ group, fields, validation, error, reset, clear, processing, isDisabled, enable, disable, enableEvent, disableEvent }">
 					<div class="card-header">Multi checkbox Form</div>
 
 					<div class="card-body">

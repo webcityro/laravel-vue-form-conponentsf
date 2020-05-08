@@ -7,7 +7,8 @@ export default {
 
 	props: {
 		group: { type: String, required: true },
-		name: { type: String, required: false, default: 'items' }
+		name: { type: String, required: false, default: 'items' },
+		alwaysEnabled: { type: Boolean, required: false, default: false }
 	},
 
 	created() {
@@ -17,7 +18,7 @@ export default {
 
 	render() {
 		return this.$scopedSlots.default({
-			disabled: this.isDisabled,
+			isDisabled: this.isDisabled,
 			processing: this.processing,
 			trigger: this.conditionalTrigger
 		});
@@ -25,7 +26,7 @@ export default {
 
 	methods: {
 		conditionalTrigger() {
-			if (this.isDisabled) {
+			if (this.isDisabled && !this.alwaysEnabled) {
 				return;
 			}
 

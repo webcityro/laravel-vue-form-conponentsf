@@ -3,6 +3,7 @@
 		type="button"
 		class="menubar__button"
 		:class="{ 'is-active': isActive }"
+		:disabled="isDisabled"
 		@click="menu.commands[cmd](args)"
 	>
 		<div class="icon" :class="[`icon--${name}`, `icon--${size}`, { 'has-align-fix': fixAlign }]">
@@ -24,6 +25,7 @@ export default {
 		size: { type: String, required: false, default: 'normal' },
 		modifier: { type: String, required: false, default: null },
 		fixAlign: { type: Boolean, required: false, default: true },
+		isDisabled: { type: Boolean, required: false, default: false },
 	},
 
 	mounted() {
@@ -76,5 +78,17 @@ export default {
 	&:last-child {
 		margin-right: 0;
 	}
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+button[disabled],
+button[disabled] .icon {
+	opacity: .5;
+	pointer-events: none;
+	cursor: not-allowed;
 }
 </style>
